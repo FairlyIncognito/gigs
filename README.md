@@ -1,6 +1,6 @@
-## Smart:Hire
+# Smart:Hire
 
-# A Job Board Project
+### A Job Board Project
 
 -   Laravel
 -   Tailwind
