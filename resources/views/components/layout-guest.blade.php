@@ -25,24 +25,15 @@
             },
         };
     </script>
-    <title>Smart:Hire</title>
+    <title>Smart:Hire - Freelancer Portal</title>
     
 </head>
-<body class="mb-48">
-
-    <!-- Navigation -->
-    @include('partials._nav')
-
+<body>
     <!-- Main Content -->
     <main>
         {{ $slot }}
     </main>
-
-    <!-- Footer -->
-    @include('partials._footer')
-
     <!-- Status messages -->
     <x-flash-message />
-
 </body>
 </html>

@@ -15,13 +15,28 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
     public function definition()
     {
+        $role = rand(0, 2);
+        if($role === 0) {
+            $role = 'employer';
+        }
+        else if($role === 1) {
+            $role = 'freelancer';
+        }
+        else if($role === 2) {
+            $role = 'supplier';
+        }
+        
         return [
+            'id' => $this->faker->unique()->numberBetween(1, 1000),
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'role' =>  $role,
+            'subscribed' => false,
             'remember_token' => Str::random(10),
         ];
     }

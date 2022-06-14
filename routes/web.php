@@ -20,8 +20,17 @@ use App\Http\Controllers\ListingController;
 // update - update listing
 // destroy - delete listing
 
+// Homepage
+Route::view('/', 'home');
+// User Dashboard
+Route::view('/dashboard', 'dashboard')->middleware('auth');
+
+
+// Profile view
+
+
 // All listings
-Route::get('/', [ListingController::class, 'index']);
+Route::get('/listings', [ListingController::class, 'index']);
 // Show create form
 Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 // Store listing data

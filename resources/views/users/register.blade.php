@@ -13,7 +13,7 @@
             @csrf
             <div class="mb-6">
                 <label for="name" class="inline-block text-lg mb-2">
-                    Name
+                    Name / Company
                 </label>
                 <input
                     type="text"
@@ -83,6 +83,64 @@
                         {{ $message }}
                     </p>
                 @enderror
+            </div>
+
+            <div class="mb-6">
+
+                <h1 class="block text-lg mb-2">User Role</h1>
+
+                <div class="flex space-x-4">
+                    <div>
+                        
+                        <input
+                            type="radio"
+                            class=""
+                            name="role"
+                            value="employer"
+                            id="employer"
+                        />
+                        <label for="employer">Employer</label>
+                    </div>
+                    <div>
+                        
+                        <input
+                            type="radio"
+                            class=""
+                            name="role"
+                            value="freelancer"
+                            id="freelancer"
+                        />
+                        <label for="freelancer">Freelancer</label>
+                    </div>
+                    <div>
+                        
+                        <input
+                            type="radio"
+                            class=""
+                            name="role"
+                            value="student"
+                            id="student"
+                        />
+                        <label for="student">Student</label>
+                    </div>
+                    <div>
+                       
+                        <input
+                            type="radio"
+                            class=""
+                            name="role"
+                            value="supplier"
+                            id="supplier"
+                        />
+                        <label for="supplier">Supplier</label>
+                    </div>
+
+                    @error('role')
+                            <p class="text-red-500 text-xs mt-1">
+                                {{ $message }}
+                            </p>
+                    @enderror
+                </div>
             </div>
 
             <div class="mb-6">

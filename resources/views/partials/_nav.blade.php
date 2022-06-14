@@ -1,18 +1,14 @@
 <nav class="flex justify-between items-center mb-4">
-    <a href="/">
+    <a href="/dashboard" class="ml-2 mt-2">
         <img class="w-24" src="{{ asset('images/logo.png') }}" alt="" class="logo"/>
     </a>
 
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
             <li>
-                <span class="font-bold uppercase">Welcome {{ auth()->user()->name }}</span>
-            </li>
-
-            <li>
-                <a href="/listings/manage" class="hover:text-laravel">
+                <a href="/dashboard" class="hover:text-laravel">
                     <i class="fa-solid fa-gear"></i>
-                    Manage Listings
+                    Dashboard
                 </a>
             </li>
 
