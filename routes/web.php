@@ -26,16 +26,29 @@ Route::view('/', 'home');
 Route::view('/dashboard', 'dashboard')->middleware('auth');
 
 
-// Profile view
+// Show all profiles
+Route::get('/profiles', [ProfileController::class, 'index'])->middleware('auth');
+// Show create profile form
+Route::get('/profiles/create', [ProfileController::class, 'create'])->middleware('auth');
+// Store profile data
+Route::post('/profiles', [ProfileController::class, 'store'])->middleware('auth');
+// Show edit profile form
+Route::get('/profiles/{profile}/edit', [ProfileController::class, 'edit'])->middleware('auth');
+// Update profile data
+Route::put('/profiles/{profile}', [ProfileController::class, 'update'])->middleware('auth');
+// Delete porifle data
+Route::delete('/listings/{listing}', [ProfileController::class, 'destroy'])->middleware('auth');
+// Show single profile
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 
-// All listings
+// Show all listings
 Route::get('/listings', [ListingController::class, 'index']);
-// Show create form
+// Show create listing form
 Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
 // Store listing data
 Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
-// Show edit form
+// Show edit listing form
 Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
 // Update listing data
 Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
@@ -45,6 +58,7 @@ Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->mid
 Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
 // Single listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
 
 // Show register/create user form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');

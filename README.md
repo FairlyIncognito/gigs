@@ -5,3 +5,4 @@
 -   Laravel
 -   Tailwind
 -   Alpine.js
+-   Heroicons
