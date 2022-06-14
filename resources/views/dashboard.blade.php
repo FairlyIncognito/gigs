@@ -1,8 +1,13 @@
 <x-layout>
     <x-card class="p-10 max-w-lg mx-auto mt-24">
 
-        <span class="font-bold text-xl">Welcome {{ auth()->user()->name }}</span>
-        <h1 class="text-lg mb-2">Dashboard</h1>
+        <h1 class="text-xl">
+            <span class="font-bold text-xl">Dashboard</span>
+        </h1>
+        
+        <h2 class="text-lg mb-4 ml-4">
+            {{ auth()->user()->name }}
+        </h2>
 
         <!-- Dashboard for freelancer/student user roles -->
         @if(auth()->user() && auth()->user()->role === 'freelancer' || auth()->user() && auth()->user()->role === 'student')
@@ -10,6 +15,11 @@
                 <li>
                     <a href="/listings" class="hover:text-laravel">
                     See Gigs
+                    </a>
+                </li>
+                <li>
+                    <a href="/profile" class="hover:text-laravel">
+                    See Profile
                     </a>
                 </li>
                 <li>
