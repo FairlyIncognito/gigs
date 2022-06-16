@@ -1,5 +1,5 @@
 <nav class="flex justify-between items-center mb-4">
-    <a href="/dashboard" class="ml-2 mt-2">
+    <a href="/" class="ml-2 mt-2">
         <img class="w-24" src="{{ asset('images/logo.png') }}" alt="" class="logo"/>
     </a>
 
