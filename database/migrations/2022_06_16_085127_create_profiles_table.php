@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name_first');
             $table->string('name_last');
+            $table->string('title');
+            $table->string('picture');
             $table->string('job_roles');
             $table->string('location_home');
             $table->string('location_current');
