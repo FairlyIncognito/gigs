@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Listing;
+use App\Models\Picture;
 use App\Models\Profile;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,13 +19,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(5)->create();
-        // Listing::factory(10)->create();
-
-        User::factory(100)
-            ->has(Profile::factory()->count(1))
-            ->has(Listing::factory()->count(10))
-            ->create();
+        // Seed DB with 100 users. Each user has 10 listings and one profile. Each profile has 10 pictures. Create all.
+        User::factory(100)->hasListings(10)->has(Profile::factory(1)->hasPictures(10))->create();
+        
 
           
 }

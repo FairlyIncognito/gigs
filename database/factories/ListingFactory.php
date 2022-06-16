@@ -16,10 +16,15 @@ class ListingFactory extends Factory
      */
     public function definition()
     {
+        // LoremFlickr fake image provider for the FakerPHP library
+        $faker = \Faker\Factory::create();
+        $faker->addProvider(new \Xvladqt\Faker\LoremFlickrProvider($faker)); // ignore IDE error; if compile error run composer install
+
         return [
             'user_id' => \App\Models\User::factory(),
             'title' => $this->faker->sentence(),
-            'tags' => '' . $this->faker->fileExtension() . ', ' . $this->faker->fileExtension() . ', ' . $this->faker->fileExtension(),
+            'logo' => $faker->imageUrl(150, 150, ['logo']),
+            'tags' => implode(" ", $this->faker->randomElements(['AV', 'Driver', 'Crew', 'Sound', 'Light', 'Scene', 'Hands'], 3)),
             'company' => $this->faker->company(),
             'email' => $this->faker->companyEmail(),
             'website' => $this->faker->url(),

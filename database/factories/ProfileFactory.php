@@ -16,25 +16,19 @@ class ProfileFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition()
-    {
-        // LoremFlickr fake image provider for the FakerPHP library
-        $faker = \Faker\Factory::create();
-        $faker->addProvider(new \Xvladqt\Faker\LoremFlickrProvider($faker));
-        
+    {     
         // Fake pdf file for test seeding
         $pdf = \Illuminate\Http\UploadedFile::fake()->create('test.pdf')->store('pdfs');
         
         return [
-            'id' => $this->faker->unique()->numberBetween(1, 1000),
             'user_id' => \App\Models\User::factory(),
             'name_first' => $this->faker->firstName(),
             'name_last' => $this->faker->lastName(),
-            'job_roles' => $this->faker->words(3, true),
+            'job_roles' => implode(" ", $this->faker->randomElements(['AV', 'Driver', 'Crew', 'Sound', 'Light', 'Scene', 'Hands'], 3)),
             'location_home' => $this->faker->address(),
             'location_current' => $this->faker->address(),
             'cover_letter' => $this->faker->paragraph(3),
             'curriculum_vitae' => $pdf,
-            'gallery_references' => $faker->imageUrl(),
         ];
     }
 }

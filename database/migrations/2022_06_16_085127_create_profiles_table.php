@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('location_current');
             $table->text('cover_letter');
             $table->string('curriculum_vitae');
-            $table->string('gallery_references');
             $table->timestamps();
         });
     }
