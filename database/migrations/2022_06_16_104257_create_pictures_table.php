@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id')->constrained();
-            $table->string('picture_name');
+            $table->string('picture_title');
             $table->string('picture_alt');
             $table->string('picture_path');
             $table->timestamps();

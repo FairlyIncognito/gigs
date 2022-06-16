@@ -22,7 +22,7 @@ class PictureFactory extends Factory
 
         return [
             'profile_id' => \App\Models\Profile::factory(),
-            'picture_name' => $this->faker->slug(),
+            'picture_title' => $this->faker->slug(),
             'picture_alt' => $this->faker->words(3, true),
             'picture_path' => $faker->imageUrl(150, 150, ['logo']),
         ];
