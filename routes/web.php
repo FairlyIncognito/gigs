@@ -37,9 +37,9 @@ Route::get('/profiles/{profile}/edit', [ProfileController::class, 'edit'])->midd
 // Update profile data
 Route::put('/profiles/{profile}', [ProfileController::class, 'update'])->middleware('auth');
 // Delete porifle data
-Route::delete('/listings/{listing}', [ProfileController::class, 'destroy'])->middleware('auth');
+Route::delete('/profiles/{profile}', [ProfileController::class, 'destroy'])->middleware('auth');
 // Show single profile
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
+Route::get('/profiles/{profile}', [ProfileController::class, 'show']);
 
 
 // Show all listings
