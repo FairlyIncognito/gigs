@@ -7,7 +7,7 @@
         @unless(count($profiles) == 0)
     
         @foreach($profiles as $profile)
-        <x-profile-card :profile="$profile" />
+          <x-profile-card :profile="$profile" />
         @endforeach
     
         @else

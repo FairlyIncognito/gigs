@@ -14,7 +14,7 @@
                     <div class="text-xl font-bold mb-4">{{ $profile->title }}</div>
                 </a>
 
-                <x-listing-tags :tagsCsv="$profile->job_roles" :path= />
+                <x-listing-tags :tagsCsv="$profile->job_roles" :path="'profiles'" />
 
                 <div class="text-lg mt-4">
                     <x-icon name="home" class="text-black" />
