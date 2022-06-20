@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
@@ -24,7 +23,9 @@ use App\Http\Controllers\ProfileController;
 // Homepage
 Route::view('/', 'home');
 // User Dashboard
-Route::view('/dashboard', 'dashboard')->middleware('auth');
+Route::get('/dashboard', function () {
+    return view('dashboards.dashboard');
+})->middleware('auth');
 
 
 // Show all profiles
