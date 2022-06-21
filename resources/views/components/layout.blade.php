@@ -28,7 +28,7 @@
     <title>Smart:Hire</title>
     
 </head>
-<body class="mb-48">
+<body class="mb-28">
 
     <!-- Navigation -->
     @include('partials._nav')

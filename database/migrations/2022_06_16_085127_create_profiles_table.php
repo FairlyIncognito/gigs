@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('name_first');
             $table->string('name_last');
             $table->string('title');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->string('job_roles');
             $table->string('location_home');
             $table->string('location_current');
             $table->text('cover_letter');
-            $table->string('curriculum_vitae');
+            $table->string('curriculum_vitae')->nullable();
             $table->timestamps();
         });
     }

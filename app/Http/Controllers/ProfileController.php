@@ -30,23 +30,31 @@ class ProfileController extends Controller
     public function store(Request $request) {
         $formFields = $request->validate([
             'title' => 'required',
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
+            'name_first' => 'required',
+            'name_last' => 'required',
+            'location_home' => 'required',
+            'location_current' => 'required',
+            'job_roles' => 'required',
+            'cover_letter' => 'required',
         ]);
 
-        if($request->hasFile('logo')) {
-            // Add the path to the $formFields array and store the logo in the public directory within a logos folder
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        if($request->hasFile('picture')) {
+            // Add the path to the $formFields array and store the picture in the public directory within a pictures folder
+            $formFields['picture'] = $request->file('picture')->store('pictures', 'public');
         }
+        if($request->hasFile('curriculum_vitae')) {
+            // Add the path to the $formFields array and store the picture in the public directory within a pictures folder
+            $formFields['curriculum_vitae'] = $request->file('curriculum_vitae')->store('curriculum_vitae', 'public');
+        }
+
+        $roles = $_POST['job_roles'];
+        $formFields['job_roles'] = implode(' ', $roles);
 
         $formFields['user_id'] = auth()->id();
 
         Profile::create($formFields);
         
-        return redirect('/')->with('message', 'profile created successfully!');
+        return redirect('/dashboard')->with('message', 'Profile created successfully!');
     }
 
     // Show edit form
@@ -63,18 +71,22 @@ class ProfileController extends Controller
         
         $formFields = $request->validate([
             'title' => 'required',
-            'company' => 'required',
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
+            'name_first' => 'required',
+            'name_last' => 'required',
+            'location_home' => 'required',
+            'location_current' => 'required',
+            'job_roles' => 'required',
+            'cover_letter' => 'required',
         ]);
 
         // Image upload
-        if($request->hasFile('logo')) {
-            // Add the path to the $formFields array and store the logo in the public directory within a logos folder
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        if($request->hasFile('picture')) {
+            // Add the path to the $formFields array and store the picture in the public directory within a pictures folder
+            $formFields['picture'] = $request->file('picture')->store('pictures', 'public');
+        }
+        if($request->hasFile('curriculum_vitae')) {
+            // Add the path to the $formFields array and store the picture in the public directory within a pictures folder
+            $formFields['curriculum_vitae'] = $request->file('curriculum_vitae')->store('curriculum_vitae', 'public');
         }
 
         $profile->update($formFields);
@@ -91,6 +103,6 @@ class ProfileController extends Controller
         
         $profile->delete();
 
-        return redirect('/')->with('message', 'Profile deleted successfully!');
+        return redirect('/dashboard')->with('message', 'Profile deleted successfully!');
     }
 }
