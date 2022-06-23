@@ -58,4 +58,4 @@
     </ul>
 </x-card>
 
-<x-inbox class="mx-auto" />
+<x-inbox class="mx-auto mt-14" />
