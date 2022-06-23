@@ -50,10 +50,8 @@ class UserController extends Controller
     }
 
     // Show account page
-    public function show(User $user) {
-        return view('users.show', [
-            'user' => $user
-        ]);
+    public function show() {
+        return view('users.show');
     }
 
     // Authenticate user
