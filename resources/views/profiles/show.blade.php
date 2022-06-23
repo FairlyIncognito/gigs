@@ -10,7 +10,7 @@
     
                 <h3 class="text-2xl mb-2">{{ $profile->title }}</h3>
 
-                <img class="w-48 rounded-xl mb-2" src="{{ asset('storage/' . $profile->picture) }}" alt="profile picture for {{ $profile->name_first }} {{ $profile->name_last }}" class="rounded-xl border border-grey" />
+                <img class="w-48 rounded-xl mb-2" src="{{ File::exists('storage/' . $profile->picture) ? asset('storage/' . $profile->picture) : $profile->picture }}" alt="profile picture for {{ $profile->name_first }} {{ $profile->name_last }}" class="rounded-xl border border-grey" />
     
                 <div class="text-xl font-bold mb-4">{{ $profile->name_first }} {{ $profile->name_last }}</div>
     
