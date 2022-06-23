@@ -8,7 +8,7 @@
                 <span class="block mt-8">Account</span> 
             </h1>
 
-            @if(auth()->user()->profile->exists())
+            @if(auth()->user()->profile)
                 <img class="w-24 rounded-xl place-self-end mb-2" src="{{ asset('storage/' . auth()->user()->profile->picture) }}" alt="profile picture for logged in user" class="rounded-xl border border-grey" />
             @endif
         </div>

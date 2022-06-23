@@ -5,7 +5,6 @@
 
     <ul class="flex space-x-6 mr-6 text-lg">
         @auth
-
             <li>
                 <a href="/dashboard" class="hover:text-laravel">
                     <x-icon name="template" />
