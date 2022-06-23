@@ -14,7 +14,7 @@
         </div>
         
 
-        <div class="grid grid-cols-1 space-y-2">
+        <div class="grid grid-cols-1 space-y-2 mb-4 border-b">
             <h2 class="text-lg">
                 <x-icon name="creditcard" />
                 Subscription
@@ -47,8 +47,19 @@
                     </button>
                 </form>
             </div>
+        </div>
 
+        <div class="grid grid-cols-1 space-y-2">
+            <h2 class="text-lg">
+                <x-icon name="profile" />
+                Account type
+            </h2>
+
+            <p>
+               {{ ucwords(auth()->user()->role) }}
+            </p>
 
         </div>
+
     </x-card>
 </x-layout>
