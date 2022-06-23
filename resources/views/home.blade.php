@@ -27,7 +27,7 @@
                     </li>
                     <li>
                         <a href="/dashboard" class="hover:text-laravel">
-                            <i class="fa-solid fa-gear"></i>
+                            <x-icon name="template" />
                             Dashboard
                         </a>
                     </li>
@@ -35,7 +35,7 @@
                         <form class="inline" method="POST" action="/logout">
                             @csrf
                             <button type="submit" class="hover:text-laravel">
-                                <i class="fa-solid fa-door-closed"></i>
+                                <x-icon name="logout" />
                                 Logout
                             </button>
                         </form>
@@ -56,14 +56,14 @@
             <ul class="flex justify-evenly text-lg">
                 <li>
                     <a href="/register" class="hover:text-laravel">
-                        <i class="fa-solid fa-user-plus"></i> 
+                        <x-icon name="userplus" />
                         Register
                     </a>
                 </li>
 
                 <li>
                     <a href="/login" class="hover:text-laravel">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <x-icon name="login" />
                         Login
                     </a>
                 </li>

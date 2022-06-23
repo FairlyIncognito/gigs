@@ -49,6 +49,13 @@ class UserController extends Controller
         return view('users.login');
     }
 
+    // Show account page
+    public function show(User $user) {
+        return view('users.show', [
+            'user' => $user
+        ]);
+    }
+
     // Authenticate user
     public function authenticate(Request $request) {
         $formFields = $request->validate([

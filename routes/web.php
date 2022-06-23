@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,5 +72,12 @@ Route::post('/users', [UserController::class, 'store']);
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 // Show login form
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+// User Account
+Route::get('/account', [UserController::class, 'show'])->middleware('auth');
 // Log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
+// Subscribe
+Route::put('/subscribe', [SubscriptionController::class, 'subscribe'])->middleware('auth');
+Route::put('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->middleware('auth');
