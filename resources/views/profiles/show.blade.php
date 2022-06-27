@@ -14,7 +14,7 @@
     
                 <div class="text-xl font-bold mb-4">{{ $profile->name_first }} {{ $profile->name_last }}</div>
     
-                <x-listing-tags :tagsCsv="$profile->job_roles" />
+                <x-profile-roles :roles="$profile->job_roles"/>
     
                 <div class="text-lg my-4">
                     <x-icon name="home" class="text-black" />
@@ -32,7 +32,7 @@
                     <h3 class="text-3xl font-bold mb-4">
                         Cover Letter
                     </h3>
-                    <div class="text-lg space-y-6">
+                    <div class="text-lg space-y-6 whitespace-pre-wrap">
                         {{ $profile->cover_letter }}
                     </div>
                 </div>

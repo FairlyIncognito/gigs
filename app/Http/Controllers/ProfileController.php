@@ -47,8 +47,8 @@ class ProfileController extends Controller
             $formFields['curriculum_vitae'] = $request->file('curriculum_vitae')->store('curriculum_vitae', 'public');
         }
 
-        $roles = $_POST['job_roles'];
-        $formFields['job_roles'] = implode(' ', $roles);
+        $roles = $_POST['job_roles']; // get job_roles field from the posted form
+        $formFields['job_roles'] = implode(' ', $roles); // Convert array to space-delimited string and add to the formFields array
 
         $formFields['user_id'] = auth()->id();
 
@@ -88,6 +88,9 @@ class ProfileController extends Controller
             // Add the path to the $formFields array and store the picture in the public directory within a pictures folder
             $formFields['curriculum_vitae'] = $request->file('curriculum_vitae')->store('curriculum_vitae', 'public');
         }
+
+        $roles = $_POST['job_roles']; // get job_roles field from the posted form
+        $formFields['job_roles'] = implode(' ', $roles); // Convert array to space-delimited string and add to the formFields array
 
         $profile->update($formFields);
         

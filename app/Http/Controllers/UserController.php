@@ -50,8 +50,10 @@ class UserController extends Controller
     }
 
     // Show account page
-    public function show() {
-        return view('users.show');
+    public function show(User $user) {
+        return view('users.show', [
+            'user' => $user
+        ]);
     }
 
     // Authenticate user
@@ -68,5 +70,20 @@ class UserController extends Controller
         }
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+    }
+
+    // Delete Account
+    public function destroy(User $user) {
+        // Make sure logged in user is owner
+        if(! $user = $user::where('id', auth()->user()->id)) {
+            abort(403, 'Unauthorized Action');
+        }
+        
+        $user->delete();
+
+        auth()->logout();
+    
+
+        return redirect('/')->with('message', 'Account deleted successfully!');
     }
 }   

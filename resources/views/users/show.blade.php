@@ -1,4 +1,5 @@
 <x-layout>
+    
     <x-card class="max-w-lg mx-auto mt-24">
 
         <div class="grid grid-cols-2 mb-4 border-b">
@@ -49,7 +50,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 space-y-2">
+        <div class="grid grid-cols-1 space-y-2 mb-4 border-b">
             <h2 class="text-lg">
                 <x-icon name="profile" />
                 Account type
@@ -59,6 +60,17 @@
                {{ ucwords(auth()->user()->role) }}
             </p>
 
+        </div>
+
+        <div class="mt-4">
+            <form method="POST" action="/account/{{ auth()->user()->id }}">
+                @csrf
+                @method('DELETE')
+                <button class="text-black hover:text-red-500" onclick="return confirm('You are deleting your account. \n This cannot be reversed. \n Are you sure?')">
+                    <x-icon name="trash" class="text-red-500" />
+                    Delete Account
+                </button>
+            </form>          
         </div>
 
     </x-card>

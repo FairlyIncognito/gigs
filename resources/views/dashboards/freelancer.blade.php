@@ -40,9 +40,9 @@
                 <form method="POST" action="/profiles/{{ auth()->user()->profile->id }}">
                     @csrf
                     @method('DELETE')
-                    <button class="text-black hover:text-red-500" onclick="return confirm('Are you sure?')">
+                    <button class="text-black hover:text-red-500" onclick="return confirm('You are about to delete your profile. \n This cannot be reversed. \n Are you sure?')">
                         <x-icon name="trash" class="text-red-500" />
-                        Delete
+                        Delete Profile
                     </button>
                 </form>
             </li>
