@@ -24,7 +24,7 @@ class ListingFactory extends Factory
             'user_id' => \App\Models\User::factory(),
             'title' => $this->faker->sentence(),
             'logo' => $faker->imageUrl(150, 150, ['logo']),
-            'tags' => implode(" ", $this->faker->randomElements(['AV', 'Driver', 'Crew', 'Sound', 'Light', 'Scene', 'Hands'], 3)),
+            'job_roles' => implode(" ", $this->faker->randomElements(['AV', 'Driver', 'Crew', 'Sound', 'Light', 'Scene', 'Hands'], 3)),
             'company' => $this->faker->company(),
             'email' => $this->faker->companyEmail(),
             'website' => $this->faker->url(),

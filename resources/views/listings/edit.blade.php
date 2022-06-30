@@ -61,17 +61,8 @@
           @enderror
         </div>
   
-        <div class="mb-6">
-          <label for="tags" class="inline-block text-lg mb-2">
-            Tags (Comma Separated)
-          </label>
-          <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-            placeholder="Example: Laravel, Backend, Postgres, etc" value="{{$listing->tags}}" />
-  
-          @error('tags')
-          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-          @enderror
-        </div>
+        <!-- job roles -->
+        <x-job-roles-checkboxes :checkbox=$listing />
   
         <div class="mb-6">
           <label for="logo" class="inline-block text-lg mb-2">

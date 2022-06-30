@@ -20,7 +20,7 @@
 
             <div class="text-xl font-bold mb-4">{{ $listing->company }}</div>
 
-            <x-listing-tags :tagsCsv="$listing->tags" />
+            <x-job-roles-tags :roles="$listing->job_roles" />
 
             <div class="text-lg my-4">
                 <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}

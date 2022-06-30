@@ -19,7 +19,7 @@
                 <div class="text-xl font-bold mb-4 hover:text-laravel">{{ $listing->company }}</div>
             </a>
 
-            <x-listing-tags :tagsCsv="$listing->tags" />
+            <x-job-roles-tags :roles="$listing->job_roles" />
 
             <div class="text-lg mt-4">
                 <i class="fa-solid fa-location-dot"></i>

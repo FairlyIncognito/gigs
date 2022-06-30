@@ -5,13 +5,13 @@
         
             <div>
                 <a href="/profiles/{{ $profile->id }}">
-                    <h3 class="text-2xl">
+                    <h3 class="text-2xl font-bold mb-2">
                         {{ $profile->name_first }} {{ $profile->name_last }}
                     </h3>
                     
                     <img src="{{ File::exists('storage/' . $profile->picture) ? asset('storage/' . $profile->picture) : $profile->picture }}" alt="profile picture for {{ $profile->name_first }} {{ $profile->name_last }}" class="rounded-xl border border-grey" />
                     
-                    <div class="text-xl font-bold mb-4">{{ $profile->title }}</div>
+                    <div class="text-xl font-semibold mb-2 mt-2">{{ $profile->title }}</div>
                 </a>
 
                 <x-profile-roles :roles="$profile->job_roles" />
