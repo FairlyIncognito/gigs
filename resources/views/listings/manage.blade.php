@@ -1,4 +1,5 @@
 <x-layout>
+    <x-back-button />
     <x-card class="p-10">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">

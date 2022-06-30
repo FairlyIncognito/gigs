@@ -22,9 +22,8 @@ use App\Http\Controllers\SubscriptionController;
 // update - update listing
 // destroy - delete listing
 
-// Homepage
 Route::view('/', 'home');
-// gdpr
+Route::view('/contact', 'contact');
 Route::view('/privacy-policy', 'privacy-policy');
 
 

@@ -1,4 +1,6 @@
 <x-layout>
+    <x-back-button />
+    
     <x-card class="w-3/4 mx-auto">
         <div class="">
             <h1 class="text-2xl font-bold">Privacy Policy</h1>
@@ -97,6 +99,7 @@
                 identifiers and other diagnostic data.</p>
             <p>We may also collect information that Your browser sends whenever You visit our Service or when You access the
                 Service by or through a mobile device.</p>
+                <br>
             <h3 class="text-lg font-semibold">Tracking Technologies and Cookies</h3>
             <p>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain
                 information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to
@@ -198,6 +201,7 @@
                         evaluate and improve our Service, products, services, marketing and your experience.</p>
                 </li>
             </ul>
+            <br>
             <p>We may share Your personal information in the following situations:</p>
             <ul class="list-disc ml-10">
                 <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to
@@ -255,6 +259,7 @@
                 <li>Protect the personal safety of Users of the Service or the public</li>
                 <li>Protect against legal liability</li>
             </ul>
+            <br>
             <h2 class="text-lg font-bold">Security of Your Personal Data</h2>
             <p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the
                 Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means

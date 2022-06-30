@@ -1,7 +1,6 @@
 <x-layout>
-    <a href="/dashboard" class="inline-block text-black ml-4 mb-4"
-        ><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
+    <x-back-button />
+    
     <div class="mx-4">
         
     <x-card class="p-10 max-w-xl mx-auto mt-24">

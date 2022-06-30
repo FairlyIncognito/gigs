@@ -1,4 +1,5 @@
 <x-layout>
+    <x-back-button />
     <x-card
         class="p-10 max-w-lg mx-auto mt-24"
     >

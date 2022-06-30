@@ -14,7 +14,7 @@
                     <div class="text-xl font-semibold mb-2 mt-2">{{ $profile->title }}</div>
                 </a>
 
-                <x-profile-roles :roles="$profile->job_roles" />
+                <x-job-roles-tags :roles="$profile->job_roles" />
 
                 <div class="text-lg mt-4">
                     <x-icon name="home" class="text-black" />
