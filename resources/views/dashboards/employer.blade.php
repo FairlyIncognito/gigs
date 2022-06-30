@@ -12,20 +12,20 @@
             <li>
                 <a href="/listings" class="hover:text-laravel">
                     <x-icon name="grid" class="text-black" />
-                    See Gigs
+                    See Jobs
                 </a>
             </li>
             @if(auth()->user() && auth()->user()->role === 'employer' && auth()->user()->subscribed)
                 <li>
                     <a href="/listings/manage" class="hover:text-laravel">
                         <x-icon name="edit" class="text-black" />
-                        Manage Gigs
+                        Manage Jobs
                     </a>
                 </li>
                 <li>
                     <a href="/listings/create" class="hover:text-laravel">
                         <x-icon name="plus" class="text-black" />
-                        Create Gig
+                        Create Job
                     </a>
                 </li>  
             @endif

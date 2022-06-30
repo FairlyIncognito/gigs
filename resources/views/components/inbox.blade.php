@@ -7,14 +7,14 @@
     </div>
 
     <ul class="flex flex-col space-y-2">
-        <li>
+{{--         <li>
             <a href="#" class="hover:text-laravel">
                 <x-icon name="mail" class="text-black" />
                 Unread (3)
             </a>
-        </li>
+        </li> --}}
         <li>
-            <a href="#" class="hover:text-laravel">
+            <a href="/messages" class="hover:text-laravel">
                 <x-icon name="openmail" class="text-black" />
                 All messages
             </a>

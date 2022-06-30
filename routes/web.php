@@ -84,3 +84,13 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 // Subscribe
 Route::put('/subscribe', [SubscriptionController::class, 'subscribe'])->middleware('auth');
 Route::put('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->middleware('auth');
+
+
+// Laravel Messenger Routes
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'App\Http\Controllers\MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'App\Http\Controllers\MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'App\Http\Controllers\MessagesController@store']);
+    Route::get('{id}', ['as' => 'messages.show', 'uses' => 'App\Http\Controllers\MessagesController@show']);
+    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'App\Http\Controllers\MessagesController@update']);
+});

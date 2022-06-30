@@ -17,7 +17,7 @@
         <li>
             <a href="/listings" class="hover:text-laravel">
                 <x-icon name="grid" class="text-black" />
-                See Gigs
+                See Jobs
             </a>
         </li>
         
