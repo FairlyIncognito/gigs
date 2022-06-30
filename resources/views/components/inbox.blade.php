@@ -7,12 +7,16 @@
     </div>
 
     <ul class="flex flex-col space-y-2">
-        <li>
-            <a href="/messages" class="hover:text-laravel">
-                <x-icon name="mail" class="text-black" />
-                Unread @include('messenger.unread-count')
-            </a>
-        </li>
+        <?php $count = Auth::user()->newThreadsCount(); ?>
+        @if($count > 0)
+            <li>
+                <a href="/messages" class="hover:text-laravel">
+                    <x-icon name="mail" class="text-black" />
+                    <span class="label label-danger">Unread ({{ $count }})</span>
+                </a>
+            </li>
+        @endif
+        
         <li>
             <a href="/messages" class="hover:text-laravel">
                 <x-icon name="openmail" class="text-black" />
