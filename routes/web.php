@@ -24,6 +24,8 @@ use App\Http\Controllers\SubscriptionController;
 
 // Homepage
 Route::view('/', 'home');
+// gdpr
+Route::view('/privacy-policy', 'privacy-policy');
 
 
 // User Dashboard
