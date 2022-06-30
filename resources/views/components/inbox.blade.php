@@ -7,12 +7,12 @@
     </div>
 
     <ul class="flex flex-col space-y-2">
-{{--         <li>
-            <a href="#" class="hover:text-laravel">
+        <li>
+            <a href="/messages" class="hover:text-laravel">
                 <x-icon name="mail" class="text-black" />
-                Unread (3)
+                Unread @include('messenger.unread-count')
             </a>
-        </li> --}}
+        </li>
         <li>
             <a href="/messages" class="hover:text-laravel">
                 <x-icon name="openmail" class="text-black" />
