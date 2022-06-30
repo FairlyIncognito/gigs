@@ -15,18 +15,20 @@
                     See Gigs
                 </a>
             </li>
-            <li>
-                <a href="/listings/manage" class="hover:text-laravel">
-                    <x-icon name="edit" class="text-black" />
-                    Manage Gigs
-                </a>
-            </li>
-            <li>
-                <a href="/listings/create" class="hover:text-laravel">
-                    <x-icon name="plus" class="text-black" />
-                    Create Gig
-                </a>
-            </li>
+            @if(auth()->user() && auth()->user()->role === 'employer' && auth()->user()->subscribed)
+                <li>
+                    <a href="/listings/manage" class="hover:text-laravel">
+                        <x-icon name="edit" class="text-black" />
+                        Manage Gigs
+                    </a>
+                </li>
+                <li>
+                    <a href="/listings/create" class="hover:text-laravel">
+                        <x-icon name="plus" class="text-black" />
+                        Create Gig
+                    </a>
+                </li>  
+            @endif
         </ul>
     </x-card>
     

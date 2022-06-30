@@ -11,7 +11,7 @@
     </div>
         
 
-        @if(auth()->user() && auth()->user()->role === 'employer')
+        @if(auth()->user() && auth()->user()->role === 'employer' && auth()->user()->subscribed)
             <a href="/listings/create" class="absolute right-10 bg-black text-white py-2 px-5">Post Job</a>
         @endif
 </footer>
