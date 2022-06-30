@@ -2,17 +2,20 @@
 
 <x-card>
     <div class="flex">
-        <a href="/listings/{{ $listing->id }}">
-            <!-- Not in use: no image asset link: asset('/images/no-image.png') -->
-            <img
-                class="hidden w-36 mr-6 md:block rounded-lg border border-black hover:border hover:border-laravel hover:border-1"
-                src="{{ File::exists('storage/' . $listing->logo) ? asset('storage/' . $listing->logo) : $listing->logo }}"
-                alt=""
-            />
-        </a>
+        <div class="mr-6 md:block">
+            <a href="/listings/{{ $listing->id }}">
+                <!-- Not in use: no image asset link: asset('/images/no-image.png') -->
+                <img
+                    class="sm:scale-50 md:scale-75 lg:scale-100 max-w-32 max-h-32 rounded-lg border border-black hover:border hover:border-laravel hover:border-1"
+                    src="{{ File::exists('storage/' . $listing->logo) ? asset('storage/' . $listing->logo) : $listing->logo }}"
+                    alt=""
+                />
+            </a>
+        </div>
+        
         <div>
             <a href="/listings/{{ $listing->id }}">
-                <h3 class="text-2xl hover:text-laravel">
+                <h3 class="text-xl hover:text-laravel">
                     {{ $listing->title }}
                 </h3>
                 
