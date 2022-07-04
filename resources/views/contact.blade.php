@@ -14,7 +14,7 @@
         </p>
         
 
-        <p>Email: admin@smarthire.dk</p>
+        <a href="mailto:admin@smarthire.dk">admin@smarthire.dk</a>
     </x-card>
 
     <x-card class="w-1/3 mx-auto p-3 mt-4">
