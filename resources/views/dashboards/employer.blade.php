@@ -1,12 +1,13 @@
 <div class="mt-14 flex flex-row flex-wrap justify-evenly">
     
-    <x-card class="p-10 min-w-max max-w-lg flex-grow">
-
-        <h1 class="text-xl mb-4 border-b">
-            <x-icon name="office" class="text-black" />
-            <span class="font-bold text-xl">{{ auth()->user()->name }}</span>
-            <span class="block mt-4">Dashboard</span> 
-        </h1>
+    <x-card class="min-w-max max-w-lg flex-grow">
+        <div class="grid grid-cols-2 pb-2 mb-4 border-b">
+            <h1 class="text-xl">
+                <x-icon name="office" class="text-black" />
+                <span class="font-bold text-xl">{{ auth()->user()->name }}</span>
+            </h1>
+        </div>
+       
         
         <ul>
             <li>
@@ -32,7 +33,7 @@
         </ul>
     </x-card>
     
-    <x-card class="p-10 min-w-max max-w-lg flex-grow">
+    <x-card class="min-w-max max-w-lg flex-grow">
         <div class="grid grid-cols-2 pb-2 mb-4 border-b">
             <h3 class="text-xl">
                 <x-icon name="users" class="text-black" />
