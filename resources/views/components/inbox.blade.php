@@ -7,6 +7,7 @@
     </div>
 
     <ul class="flex flex-col space-y-2">
+        <!-- $count = amount of new message threads from the laravel-messenger package -->
         <?php $count = Auth::user()->newThreadsCount(); ?>
         @if($count > 0)
             <li>

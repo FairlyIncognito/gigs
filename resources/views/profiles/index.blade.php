@@ -1,7 +1,7 @@
 <x-layout>
     
     @include('partials._search')
-    <div class="flex space-x-10">
+    <div class="flex space-x-10 items-center">
       <x-back-button />
       <x-job-roles-dropdown />
     </div>
