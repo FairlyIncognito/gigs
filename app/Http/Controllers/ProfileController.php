@@ -10,7 +10,7 @@ class ProfileController extends Controller
     // Show all profiles
     public function index() {
         return view('profiles.index', [
-            'profiles' => Profile::latest()->paginate(10)
+            'profiles' => Profile::latest()->filter(request(['tag', 'search']))->paginate(10)
         ]);
     }
 
