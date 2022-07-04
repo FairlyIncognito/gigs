@@ -30,6 +30,13 @@ Route::view('/privacy-policy', 'privacy-policy');
 // User Dashboard
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
 
+Route::get('/cv/{cv}', [ExperienceController::class, 'show'])->middleware('auth');
+Route::get('/cv/create', [ExperienceController::class, 'create'])->middleware('auth');
+Route::post('/cv', [ExperienceController::class, 'store'])->middleware('auth');
+Route::get('/cv/{cv}/edit', [ExperienceController::class, 'edit'])->middleware('auth');
+Route::put('/cv/{cv}', [ExperienceController::class, 'update'])->middleware('auth');
+Route::delete('/cv/{cv}', [ExperienceController::class, 'destroy'])->middleware('auth');
+
 
 // Show all profiles
 Route::get('/profiles', [ProfileController::class, 'index'])->middleware('auth');

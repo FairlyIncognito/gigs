@@ -22,6 +22,7 @@
         </li>
         
         @if($profile->exists())
+        <div class="inline-flex space-x-10">
             <li>
                 <a href="/profiles/{{ auth()->user()->profile->id }}" class="hover:text-laravel">
                     <x-icon name="profile" class="text-black" />
@@ -36,7 +37,7 @@
                 </a>
             </li>
 
-            <li class="mt-4">
+            <li>
                 <form method="POST" action="/profiles/{{ auth()->user()->profile->id }}">
                     @csrf
                     @method('DELETE')
@@ -46,6 +47,7 @@
                     </button>
                 </form>
             </li>
+        </div>
         @else
             <li>
                 <a href="/profiles/create" class="hover:text-laravel">
@@ -54,6 +56,44 @@
                 </a>
             </li>
         @endif
+
+        @if($experiences->exists())
+        <div class="inline-flex space-x-10">
+            <li>
+                <a href="/cv/{{ auth()->user()->cv->id }}" class="hover:text-laravel">
+                    <x-icon name="cv" class="text-black" />
+                    See CV
+                </a>
+            </li>
+
+            <li>
+                <a href="/cv/{{ auth()->user()->cv->id }}/edit" class="hover:text-laravel">
+                    <x-icon name="edit" class="text-black" />
+                    Edit CV
+                </a>
+            </li>
+
+            <li>
+                <form method="POST" action="/cv/{{ auth()->user()->cv->id }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="text-black hover:text-red-500" onclick="return confirm('You are about to delete your CV. \n This cannot be reversed. \n Are you sure?')">
+                        <x-icon name="trash" class="text-red-500" />
+                        Delete CV
+                    </button>
+                </form>
+            </li>
+        </div>
+        @else
+            <li>
+                <a href="/cv/create" class="hover:text-laravel">
+                    <x-icon name="cv" class="text-black" />
+                    Create CV
+                </a>
+            </li>
+        @endif
+
+
         
     </ul>
 </x-card>

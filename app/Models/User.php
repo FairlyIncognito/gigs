@@ -46,11 +46,16 @@ class User extends Authenticatable
 
     // Relationship to listings
     public function listings() {
-        return $this->hasMany(Listing::class, 'user_id');
+        return $this->hasMany(Listing::class);
     }
 
     // Relationship to profiles
     public function profile() {
         return $this->hasOne(Profile::class);
+    }
+
+    // Relationship to experience
+    public function experiences() {
+        return $this->hasMany(Experience::class);
     }
 }

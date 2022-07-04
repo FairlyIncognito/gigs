@@ -62,7 +62,7 @@ class ProfileController extends Controller
         return view('profiles.edit', ['profile' => $profile]);
     }
 
-    // Store profile data from form
+    // Update profile data from form
     public function update(Request $request, Profile $profile) {
         // Make sure logged in user is owner
         if($profile->user_id != auth()->id()) {
