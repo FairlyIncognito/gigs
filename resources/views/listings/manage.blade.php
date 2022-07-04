@@ -24,7 +24,7 @@
                                     href="/listings/{{ $listing->id }}/edit" 
                                     class="text-blue-400 px-6 py-2 rounded-xl"
                                 >
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <x-icon name="edit" />
                                     Edit
                                 </a>
                             </td>
@@ -34,7 +34,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button class="text-red-500">
-                                        <i class="fa-solid fa-trash"></i>
+                                        <x-icon name="trash" />
                                         Delete
                                     </button>
                                 </form>

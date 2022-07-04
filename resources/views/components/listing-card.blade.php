@@ -25,7 +25,7 @@
             <x-job-roles-tags :roles="$listing->job_roles" />
 
             <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i>
+                <x-icon name="map" class="text-black" />
                 {{ $listing->location }}
             </div>
         </div>
