@@ -6,3 +6,4 @@
 -   Tailwind
 -   Alpine.js
 -   Heroicons
+-   Laravel-Messenger (Might use Chatify instead later)
