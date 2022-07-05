@@ -13,16 +13,19 @@
     </div>
     
 
-    <ul class="grid grid-cols-1 space-y-2">
-        <li>
-            <a href="/listings" class="hover:text-laravel">
-                <x-icon name="grid" class="text-black" />
-                See Jobs
-            </a>
-        </li>
+    <ul class="space-y-2">
+        <div class="grid grid-cols-3">
+            <li>
+                <a href="/listings" class="hover:text-laravel">
+                    <x-icon name="grid" class="text-black" />
+                    See Jobs
+                </a>
+            </li>
+        </div>
+        
         
         @if($profile->exists())
-        <div class="inline-flex space-x-10">
+        <div class="grid grid-cols-3">
             <li>
                 <a href="/profiles/{{ auth()->user()->profile->id }}" class="hover:text-laravel">
                     <x-icon name="profile" class="text-black" />
@@ -58,23 +61,23 @@
         @endif
 
         @if($experiences->exists())
-        <div class="inline-flex space-x-10">
+        <div class="grid grid-cols-3">
             <li>
-                <a href="/cv/{{ auth()->user()->cv->id }}" class="hover:text-laravel">
+                <a href="/cv/{{ auth()->user()->id }}" class="hover:text-laravel">
                     <x-icon name="cv" class="text-black" />
                     See CV
                 </a>
             </li>
 
             <li>
-                <a href="/cv/{{ auth()->user()->cv->id }}/edit" class="hover:text-laravel">
+                <a href="/cv/{{ auth()->user()->id }}/manage" class="hover:text-laravel">
                     <x-icon name="edit" class="text-black" />
                     Edit CV
                 </a>
             </li>
 
             <li>
-                <form method="POST" action="/cv/{{ auth()->user()->cv->id }}">
+                <form method="POST" action="/cv/{{ auth()->user()->id }}">
                     @csrf
                     @method('DELETE')
                     <button class="text-black hover:text-red-500" onclick="return confirm('You are about to delete your CV. \n This cannot be reversed. \n Are you sure?')">

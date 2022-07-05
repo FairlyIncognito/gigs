@@ -4,51 +4,66 @@
     <x-back-button />
     
     <div class="mx-4">
-        <x-card class="p-10">
+        <x-card class="p-10 mx-48">
             <!-- WIP -->
-            @foreach($experiences as $experience)
-                <!-- TODO: foreach category make section? -->
-                @if($experience->category == 'Work')
-                
-                @elseif($experience->category == 'Education')
-
-                @elseif($experience->category == 'Skills')
-
-                @endif
-
-
-
-
-
-                <!-- leftover boilerplate for inspiration -->
-                <div class="flex flex-col items-center justify-center text-center">
-        
-                    <h3 class="text-2xl mb-2">{{ $experience->title }}</h3>
-        
-                    <div class="text-xl font-bold mb-4">{{ $experience->name_first }} {{ $experience->name_last }}</div>
-        
-                    <div class="text-lg my-4">
-                        <x-icon name="home" class="text-black" />
-                        {{ $experience->location_home }}
+            <?php $work = $experiences->whereIn('category', 'Work'); ?>
+            <?php $education = $experiences->whereIn('category', 'Education'); ?>
+            <?php $skill = $experiences->whereIn('category', 'Skill'); ?>
+            
+            @if(count($work) != 0)
+                <h4 class="text-2xl block font-bold text-center mb-4">Work Experience</h4>
+                <div class="grid grid-cols-2 place-content-center space-x-5 border-b-2 pb-4 mx-48 my-4">
+                    @foreach($work as $experience)
+                    <div class="place-self-end my-2">
+                        <p class="text-md font-semibold uppercase">{{ $experience->organization }}</p>
+                        <p class="text-sm">{{ $experience->location }}</p>
+                        <p class="text-xs">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $experience->start_date)->format('m-Y') }} - {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $experience->end_date)->format('m-Y') }}</p>
                     </div>
-
-                    <div class="text-lg my-4">
-                        <x-icon name="map" class="text-black" />
-                        {{ $experience->location_current }}
+                    
+                    <div class="pl-4 border-l-2 my-2">
+                        <p class="text-md font-semibold">{{ $experience->title }}</p>
+                        <p class="text-sm">{{ $experience->description }}</p>
                     </div>
-
-
-                    <div class="border border-gray-200 w-full mb-6"></div>
-                    <div>
-                        <h3 class="text-3xl font-bold mb-4">
-                            Cover Letter
-                        </h3>
-                        <div class="text-lg space-y-6 whitespace-pre-wrap">
-                            {{ $experience->cover_letter }}
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-            @endforeach
+            @endif
+
+            @if(count($education) != 0)
+                <h4 class="text-2xl block font-bold text-center mb-4">Education</h4>
+                <div class="grid grid-cols-2 place-content-center space-x-5 border-b-2 pb-4 mx-48 my-4">
+                    @foreach($education as $experience)
+                    <div class="place-self-end my-2">
+                        <p class="text-md font-semibold uppercase">{{ $experience->organization }}</p>
+                        <p class="text-sm">{{ $experience->location }}</p>
+                        <p class="text-xs">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $experience->start_date)->format('m-Y') }} - {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $experience->end_date)->format('m-Y') }}</p>
+                    </div>
+                    
+                    <div class="pl-4 border-l-2 my-2">
+                        <p class="text-md font-semibold">{{ $experience->title }}</p>
+                        <p class="text-sm">{{ $experience->description }}</p>
+                    </div>
+                    @endforeach
+                </div>
+            @endif
+
+            @if(count($skill) != 0)
+                <h4 class="text-2xl block font-bold text-center mb-4">Skills</h4>
+                <div class="grid grid-cols-2 place-content-center space-x-5 border-b-2 pb-4 mx-48 my-4">
+                    @foreach($skill as $experience)
+                    <div class="place-self-end my-2">
+                        <p class="text-md font-semibold uppercase">{{ $experience->organization }}</p>
+                        <p class="text-sm">{{ $experience->location }}</p>
+                        <p class="text-xs">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $experience->start_date)->format('m-Y') }} - {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $experience->end_date)->format('m-Y') }}</p>
+                    </div>
+                    
+                    <div class="pl-4 border-l-2 my-2">
+                        <p class="text-md font-semibold">{{ $experience->title }}</p>
+                        <p class="text-sm">{{ $experience->description }}</p>
+                    </div>
+                    @endforeach
+                </div>
+            @endif
+
         </x-card>
     </div>
 </x-layout>

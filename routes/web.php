@@ -6,6 +6,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\CurriculumVitaeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +31,17 @@ Route::view('/privacy-policy', 'privacy-policy');
 // User Dashboard
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth');
 
-Route::get('/cv/{cv}', [ExperienceController::class, 'show'])->middleware('auth');
-Route::get('/cv/create', [ExperienceController::class, 'create'])->middleware('auth');
-Route::post('/cv', [ExperienceController::class, 'store'])->middleware('auth');
-Route::get('/cv/{cv}/edit', [ExperienceController::class, 'edit'])->middleware('auth');
-Route::put('/cv/{cv}', [ExperienceController::class, 'update'])->middleware('auth');
-Route::delete('/cv/{cv}', [ExperienceController::class, 'destroy'])->middleware('auth');
+
+// User CV
+Route::get('/cv/{user}', [CurriculumVitaeController::class, 'show'])->middleware('auth');
+Route::get('/cv/create', [CurriculumVitaeController::class, 'create'])->middleware('auth');
+Route::post('/cv', [CurriculumVitaeController::class, 'store'])->middleware('auth');
+Route::get('/cv/{id}/edit', [CurriculumVitaeController::class, 'edit'])->middleware('auth');
+Route::get('/cv/{user}/manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
+Route::put('/cv/{user}', [CurriculumVitaeController::class, 'update'])->middleware('auth');
+
+Route::delete('/cv/{user}', [CurriculumVitaeController::class, 'destroy_all'])->middleware('auth');
+Route::delete('/cv/{id}', [CurriculumVitaeController::class, 'destroy'])->middleware('auth');
 
 
 // Show all profiles

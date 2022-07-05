@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class CurriculumVitaeController extends Controller
 {
-    // Show single Experience
-    public function show(Experience $experiences) {
+    // Show single User's Experiences
+    public function show(Experience $experiences, Request $request) {
+        $experiences = $request->user()->experiences()->get();
+
         return view('cv.show', [
             'experiences' => $experiences
         ]);
@@ -33,20 +38,43 @@ class CurriculumVitaeController extends Controller
         return redirect('/dashboard')->with('message', 'CV created successfully!');
     }
 
-    // Show edit form
-    public function edit(Experience $experiences) {
-        return view('cv.edit', ['experiences' => $experiences]);
+    // Show manage page
+    public function manage(Experience $experiences) {
+        $experiences = auth()->user()->experiences()->get();
+        return view('cv.manage', ['experiences' => $experiences]);
     }
 
-     // Delete profile
-     public function destroy(Experience $experiences) {
+    // Show edit form
+    public function edit(Experience $experience, Request $request) {
+        $experience = Experience::find($request->id);
+        return view('cv.edit', ['experience' => $experience]);
+    }
+
+    // Delete experience
+    public function destroy(Experience $experience, Request $request) {
+        $experience = Experience::find($request->id);
         // Make sure logged in user is owner
-        if($experiences->user_id != auth()->id()) {
+        if($experience->user_id != auth()->user()->id) {
             abort(403, 'Unauthorized Action');
         }
         
-        $experiences->delete();
+        $experience->delete();
 
-        return redirect('/dashboard')->with('message', 'CV deleted successfully!');
+        return back()->with('message', 'Entry deleted successfully!');
+        
+    }
+
+    // Delete all experiences
+    public function destroy_all(Experience $experiences, Request $request) {  
+        $experiences = auth()->user()->experiences;
+
+        if($request->user != auth()->user()->id) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $experiences->whereIn('user_id', $request->user)->each->delete();
+
+        return back()->with('message', 'CV deleted successfully!');
+    
     }
 }
