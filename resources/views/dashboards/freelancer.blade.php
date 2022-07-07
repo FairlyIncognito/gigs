@@ -1,4 +1,4 @@
-<x-card class="max-w-lg mx-auto mt-24">
+<x-card class="max-w-lg mx-auto md:mt-14 lg:mt-24">
 
     <div class="grid grid-cols-2 mb-4 border-b">
         <h1 class="text-xl">

@@ -2,7 +2,7 @@
     <x-back-button />
 
     <div class="mx-4">
-        <x-card class="p-10 max-w-xl mx-auto mt-24">
+        <x-card class="p-10 max-w-xl mx-auto md:mt-14 lg:mt-24">
 
             <form method="POST" action="/profiles/{{ $profile->id }}" enctype="multipart/form-data">
                 @csrf
