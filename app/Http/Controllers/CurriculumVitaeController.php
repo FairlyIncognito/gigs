@@ -52,29 +52,29 @@ class CurriculumVitaeController extends Controller
 
     // Delete experience
     public function destroy(Experience $experience, Request $request) {
-        $experience = Experience::find($request->id);
-        // Make sure logged in user is owner
-        if($experience->user_id != auth()->user()->id) {
-            abort(403, 'Unauthorized Action');
+        // Check if single entry
+        if(Experience::find($request->id)) {
+            $experience = Experience::find($request->id);
+            // Make sure logged in user is owner
+            if($experience->user_id != auth()->user()->id) {
+                abort(403, 'Unauthorized Action');
+            }
+            // Delete single CV entry
+            $experience->delete();
+
+            return back()->with('message', 'CV entry deleted successfully!');
         }
-        
-        $experience->delete();
+        // Check if 
+        elseif(auth()->user()->experiences) {
+            $experiences = auth()->user()->experiences;
+            // Make sure logged in user is owner
+            if($request->id != auth()->user()->id) {
+                abort(403, 'Unauthorized Action');
+            }
+            // Delete all CV entries for user
+            $experiences->whereIn('user_id', $request->id)->each->delete();
 
-        return back()->with('message', 'CV entry deleted successfully!');
-        
-    }
-
-    // Delete all experiences
-    public function destroy_all(Experience $experiences, Request $request) {  
-        $experiences = auth()->user()->experiences;
-
-        if($request->user != auth()->user()->id) {
-            abort(403, 'Unauthorized Action');
-        }
-
-        $experiences->whereIn('user_id', $request->user)->each->delete();
-
-        return back()->with('message', 'CV deleted successfully!');
-    
+            return back()->with('message', 'CV deleted successfully!');
+        } 
     }
 }

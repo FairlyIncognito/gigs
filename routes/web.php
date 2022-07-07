@@ -39,9 +39,8 @@ Route::post('/cv', [CurriculumVitaeController::class, 'store'])->middleware('aut
 Route::get('/cv/{id}/edit', [CurriculumVitaeController::class, 'edit'])->middleware('auth');
 Route::get('/cv/{user}/manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
 Route::put('/cv/{user}', [CurriculumVitaeController::class, 'update'])->middleware('auth');
-
-Route::delete('/cv/{user}', [CurriculumVitaeController::class, 'destroy_all'])->middleware('auth');
 Route::delete('/cv/{id}', [CurriculumVitaeController::class, 'destroy'])->middleware('auth');
+
 
 
 // Show all profiles
