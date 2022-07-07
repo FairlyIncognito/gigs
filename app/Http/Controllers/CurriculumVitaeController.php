@@ -40,7 +40,7 @@ class CurriculumVitaeController extends Controller
 
     // Show manage page
     public function manage(Experience $experiences) {
-        $experiences = auth()->user()->experiences()->get();
+        $experiences = auth()->user()->experiences()->get(); // Ignore IDE error, method exists.
         return view('cv.manage', ['experiences' => $experiences]);
     }
 
@@ -60,7 +60,7 @@ class CurriculumVitaeController extends Controller
         
         $experience->delete();
 
-        return back()->with('message', 'Entry deleted successfully!');
+        return back()->with('message', 'CV entry deleted successfully!');
         
     }
 

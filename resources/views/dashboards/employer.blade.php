@@ -1,6 +1,6 @@
-<div class="mt-14 flex flex-row flex-wrap justify-evenly">
+<div class="mt-14 mx-16 md:mx-5 lg:mx-5 grid gap-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center">
     
-    <x-card class="min-w-max max-w-lg flex-grow">
+    <x-card class="min-w-full max-w-lg">
         <div class="grid grid-cols-2 pb-2 mb-4 border-b">
             <h1 class="text-xl">
                 <x-icon name="office" class="text-black" />
@@ -33,7 +33,7 @@
         </ul>
     </x-card>
     
-    <x-card class="min-w-max max-w-lg flex-grow">
+    <x-card class="min-w-full max-w-lg">
         <div class="grid grid-cols-2 pb-2 mb-4 border-b">
             <h3 class="text-xl">
                 <x-icon name="users" class="text-black" />
@@ -50,7 +50,7 @@
         </ul>
     </x-card>
 
-    <x-inbox class="flex-grow" />
+    <x-inbox class="min-w-full" />
 </div>
 
 

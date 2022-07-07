@@ -1,17 +1,16 @@
 <x-layout>
     <x-back-button />
-    <x-card class="p-10">
+    <x-card class="p-10 lg:mx-24 md:mx-12 sm:mx-6">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
-                Manage experiences on your CV
+                Manage your CV
             </h1>
         </header>
 
-        <div class="w-1/2 mx-auto border-t-2">
+        <div class="w-full border-t-2">
             @if(count($experiences) != 0)
-                <div class="grid grid-cols-5">
-                    <?php $experiences = $experiences->sortByDesc('start_date'); ?>
-                    @foreach ($experiences as $experience)
+                <div class="grid lg:grid-cols-5 md:grid-cols-4 grid-cols-3">
+                    @foreach ($experiences->sortByDesc('start_date') as $experience)
 
                         <div class="px-4 py-4 border-b-2">
                             <p class="text-md font-semibold uppercase">{{ $experience->organization }}</p>
@@ -23,18 +22,18 @@
                             </p>
                         </div>
                         
-                        <div class="px-4 py-4 border-b-2">
+                        <div class="px-4 py-4 border-b-2 lg:block md:block hidden">
                             <p class="text-md font-semibold">{{ $experience->title }}</p>
                             <p class="text-sm">{{ $experience->description }}</p>
                         </div>
 
-                        <div class="px-4 py-4 border-b-2">
+                        <div class="px-4 py-4 border-b-2 lg:block md:hidden hidden">
                             <p class="font-semibold">Category:</p>
                             <p class="text-sm">{{ $experience->category }}</p>
                         </div>
 
                         <div class="px-4 py-8 border-b-2">
-                            <a href="/cv/{{ $experience->id }}/edit" class="text-laravel px-6 py-2">
+                            <a href="/cv/{{ $experience->id }}/edit" class="text-laravel px-6 py-2 truncate">
                                 <x-icon name="edit" />
                                 Edit
                             </a>
@@ -44,7 +43,7 @@
                             <form method="POST" action="/cv/{{ $experience->id }}">
                                 @csrf
                                 @method('DELETE')
-                                <button class="text-red-500">
+                                <button class="text-red-500 truncate">
                                     <x-icon name="trash" />
                                     Delete
                                 </button>

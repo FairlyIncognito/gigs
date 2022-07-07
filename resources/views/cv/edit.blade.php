@@ -4,9 +4,9 @@
     <x-back-button />
     
     <div class="mx-4">
-        <x-card class="p-10 mx-48">           
+        <x-card class="p-10 lg:mx-48 md:mx-24 sm:mx-12">           
                 <h4 class="text-2xl block font-bold text-center mb-4">Work Experience</h4>
-                <div class="grid grid-cols-2 place-content-center space-x-5 border-b-2 pb-4 mx-48 my-4">
+                <div class="grid grid-cols-2 place-content-center space-x-5 border-b-2 pb-4 my-4">
                     <div class="place-self-end my-2">
                         <p class="text-md font-semibold uppercase">{{ $experience->organization }}</p>
                         <p class="text-sm">{{ $experience->location }}</p>
