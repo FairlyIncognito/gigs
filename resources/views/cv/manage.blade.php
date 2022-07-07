@@ -1,5 +1,5 @@
 <x-layout>
-    <x-back-button />
+    <x-back-button :path="'/dashboard'" />
     <x-card class="p-10 lg:mx-24 md:mx-12 sm:mx-6">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
